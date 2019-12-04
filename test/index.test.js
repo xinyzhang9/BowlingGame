@@ -57,8 +57,23 @@ describe('Bowling Game Score', () => {
         expect(BowlingGameScore(input)).to.equal(285);
     })
 
-    it('10 strikes and --', () => {
+    it('9 strikes and last 1 spare', () => {
+        let input = 'X X X X X X X X X 5/5';
+        expect(BowlingGameScore(input)).to.equal(270);
+    })
+
+    it('10 strikes and 2 miss', () => {
         let input = 'X X X X X X X X X X --';
         expect(BowlingGameScore(input)).to.equal(270);
+    })
+
+    it('Two inadjacent strikes', () => {
+        let input = 'X 5/ X 2/ -- -- -- -- -- --';
+        expect(BowlingGameScore(input)).to.equal(70);
+    })
+
+    it('Random', () => {
+        let input = 'X 2/ X 1/ -- -- -- -- X X 8/';
+        expect(BowlingGameScore(input)).to.equal(118);
     })
 })
