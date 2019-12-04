@@ -54,6 +54,11 @@ describe('Bowling Game Score', () => {
 
     it('10 strikes and 1 spare', () => {
         let input = 'X X X X X X X X X X 5/';
-        expect(BowlingGameScore(input)).to.equal(290);
+        expect(BowlingGameScore(input)).to.equal(285);
+    })
+
+    it('10 strikes and --', () => {
+        let input = 'X X X X X X X X X X --';
+        expect(BowlingGameScore(input)).to.equal(270);
     })
 })
